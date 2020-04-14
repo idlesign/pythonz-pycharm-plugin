@@ -1,5 +1,5 @@
-QRCoder
-=======
+pythonz.net in PyCharm
+======================
 https://github.com/idlesign/pythonz-pycharm-plugin
 
 
@@ -12,6 +12,7 @@ Description
 * Select text you want to get hint for or set a caret on it;
 * Press ``AltGr + P`` to trigger QR code popup
   (you may bind a custom keystroke for "Show pythonz.net Code Hints" action in ``Keymap``)
+
 
 Requirements
 ------------
