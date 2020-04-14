@@ -63,10 +63,6 @@ public class ShowPythonzAction extends AnAction {
         }
     }
 
-    private void showHint(String hint, Editor editor) {
-        JBPopupFactory.getInstance().createMessage(hint).showInBestPositionFor(editor);
-    }
-
     private void showPopup(JComponent panel, Editor editor) {
 
         ComponentPopupBuilder builder = JBPopupFactory.getInstance().
