@@ -16,19 +16,11 @@ final public class BrowserService {
     Map<String, String> header = new Hashtable<>();
 
     public BrowserService() {
-        try {
-            browser = new JBCefBrowser();
+        browser = new JBCefBrowser();
 
-            ApplicationInfo appInfo = ApplicationInfo.getInstance();
-            header.put("ide-name", appInfo.getVersionName());
-            header.put("ide-version", appInfo.getFullVersion());
-
-        } catch (IllegalStateException e) {
-            JBPopupFactory.getInstance().createMessage("Please enable JCEF:<br>" +
-                    "Help -> Find Action -> Registry -> ide.browser.jcef.enabled"
-            ).showInFocusCenter();
-            return;
-        }
+        ApplicationInfo appInfo = ApplicationInfo.getInstance();
+        header.put("ide-name", appInfo.getVersionName());
+        header.put("ide-version", appInfo.getFullVersion());
     }
 
     public JComponent getComponent(){
