@@ -8,6 +8,8 @@ Description
 
 *Plugin for PyCharm featuring code hints from pythonz.net*
 
+.. image:: static/shot.png
+
 * Install the plugin and restart IDE;
 * Select text you want to get hint for or set a caret on it;
 * Press ``AltGr + P`` to trigger QR code popup. 
