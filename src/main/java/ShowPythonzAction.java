@@ -39,10 +39,8 @@ public class ShowPythonzAction extends AnAction {
         }
 
         BrowserService browser = ServiceManager.getService(BrowserService.class);
-
-        if (browser.loadUrl(termEncoded)) {
-            showPopup(browser.getComponent(), editor);
-        }
+        browser.loadUrl(termEncoded);
+        showPopup(browser.getComponent(), editor, term);
 
     }
 
@@ -64,11 +62,12 @@ public class ShowPythonzAction extends AnAction {
         return term;
     }
 
-    private void showPopup(JComponent panel, Editor editor) {
+    private void showPopup(JComponent panel, Editor editor, String term) {
 
         ComponentPopupBuilder builder = JBPopupFactory.getInstance().
                 createComponentPopupBuilder(panel, null).
-                setTitle("pythonz.net").
+                setTitle(term).
+                setAdText("pythonz.net").
                 setCancelOnWindowDeactivation(true).
                 setRequestFocus(true).
                 setResizable(true).
