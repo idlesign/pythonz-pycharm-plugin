@@ -76,7 +76,7 @@ public class ShowPythonzAction extends AnAction {
                 setMovable(true);
 
         final JBPopup popup = builder.createPopup();
-        popup.setMinimumSize(new Dimension(600, 450));
+        popup.setSize(new Dimension(600, 450));
         popup.showInBestPositionFor(editor);
 
     }
