@@ -11,23 +11,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Objects;
 
 
 public class ShowPythonzAction extends AnAction {
 
-    public ShowPythonzAction() {
-        ServiceManager.getService(BrowserService.class);  // bootstrap?
-    }
-
     public void actionPerformed(AnActionEvent event) {
 
         Editor editor = event.getData(PlatformDataKeys.EDITOR);
-        String term = getTerm(editor);
-
-        if (term.isEmpty()) {
-            editor.getSelectionModel().selectWordAtCaret(true);
-            term = getTerm(editor);
-        }
+        String term = getTerm(editor, true);
 
         if (term.isEmpty() || term.length() < 3) {
             return;
@@ -54,13 +46,22 @@ public class ShowPythonzAction extends AnAction {
 
     }
 
-    private String getTerm(Editor editor) {
+    private String getTerm(Editor editor, Boolean autoselect) {
+        String term;
+
         try {
-            return editor.getSelectionModel().getSelectedText().trim();
+            term = Objects.requireNonNull(editor.getSelectionModel().getSelectedText()).trim();
 
         } catch (NullPointerException e) {
-            return "";
+            term = "";
         }
+
+        if (term.isEmpty() && autoselect) {
+            editor.getSelectionModel().selectWordAtCaret(true);
+            term = getTerm(editor, false);
+        }
+
+        return term;
     }
 
     private void showPopup(JComponent panel, Editor editor) {
