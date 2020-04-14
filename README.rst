@@ -10,6 +10,8 @@ Description
 
 .. image:: static/shot.png
 
+Repository link: https://plugins.jetbrains.com/plugin/14132-pythonz
+
 * Install the plugin and restart IDE;
 * Select text you want to get hint for or set a caret on it;
 * Press ``AltGr + P`` to trigger QR code popup. 
