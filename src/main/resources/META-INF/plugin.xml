@@ -1,0 +1,19 @@
+<idea-plugin>
+    <id>org.idlesign.pythonz</id>
+    <name>pythonz</name>
+    <vendor email="idlesign@yandex.ru" url="https://github.com/idlesign/pythonz-pycharm-plugin">Igor Starikov / idlesign /</vendor>
+
+    <description><![CDATA[
+    PyCharm plugin featuring code hints from <a href="https://pythonz.net">pythonz.net</a>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <actions>
+        <action id="ShowPythonzAction" class="ShowPythonzAction" text="Show pythonz.net Code Hints"
+                description="Show popup with code hints from pythonz.net. For selected code or code under caret.">
+            <add-to-group group-id="EditorActions" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="altGraph P"/>
+        </action>
+    </actions>
+</idea-plugin>

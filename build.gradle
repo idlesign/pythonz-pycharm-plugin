@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.4.18'
+}
+
+group 'org.idlesign'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+intellij {
+    version '2020.1'
+}
+
+tasks {
+    runIde {
+        jbrVersion("jbr_jcef-11_0_6b840.3")
+    }
+}
+
+patchPluginXml {
+    changeNotes """
+        <em>v1.0.0</em>
+        <ul>
+            <li>Basic functionality.</li>
+        </ul>
+      """
+}
