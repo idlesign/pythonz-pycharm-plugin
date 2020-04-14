@@ -29,7 +29,7 @@ since 2020.1 as an `experimental feature <https://www.jetbrains.org/intellij/sdk
 
 So for now in order to use this plugin one needs to:
 
-1. Enable JCEF: "Help -> Find Action -> Registry -> ide.browser.jcef.enabled
-2. Download for your platform and active latest JCEF enabled Runtime SDK (jbr_jcef) using "Choose Runtime" plugin
+1. Enable JCEF: Help -> Find Action -> Registry -> ide.browser.jcef.enabled
+2. Download for your platform and active latest JCEF enabled Runtime SDK (jbr_jcef) using ``Choose Runtime`` plugin
    as described `here <https://youtrack.jetbrains.com/issue/IDEA-231833#focus=streamItem-27-3993099.0-0>`_.
 3. Done.
