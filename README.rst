@@ -6,12 +6,11 @@ https://github.com/idlesign/pythonz-pycharm-plugin
 Description
 -----------
 
-*Plugin for PyCharm IDEs featuring code hints from pythonz.net*
+*Plugin for PyCharm featuring code hints from pythonz.net*
 
 * Install the plugin and restart IDE;
 * Select text you want to get hint for or set a caret on it;
-* Press ``AltGr + P`` to trigger QR code popup
-  
+* Press ``AltGr + P`` to trigger QR code popup. 
   You may bind a custom keystroke for "Show pythonz.net Code Hints" action in ``Keymap``.
 
 
