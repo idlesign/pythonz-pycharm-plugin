@@ -6,6 +6,7 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.ui.popup.ComponentPopupBuilder;
 import com.intellij.openapi.ui.popup.JBPopup;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
+import com.intellij.ui.jcef.JBCefApp;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +19,19 @@ public class ShowPythonzAction extends AnAction {
 
     public void actionPerformed(AnActionEvent event) {
 
+        BrowserService browser = ServiceManager.getService(BrowserService.class);
+
         Editor editor = event.getData(PlatformDataKeys.EDITOR);
+
+        if (!JBCefApp.isSupported()) {
+            JBPopupFactory.getInstance().createComponentPopupBuilder(
+                    new JLabel("Make sure to use 2020.2+ run on bundled JBRuntime."), null).
+                    setTitle("JCEF Support is Missing").
+                    createPopup().
+                    showInBestPositionFor(editor);
+            return;
+        }
+
         String term = getTerm(editor, true);
 
         if (term.isEmpty() || term.length() < 3) {
@@ -35,10 +48,9 @@ public class ShowPythonzAction extends AnAction {
             termEncoded = urlBase.replace("{term}", URLEncoder.encode(term, "UTF-8"));
 
         } catch (UnsupportedEncodingException e) {
-            throw new AssertionError("UTF-8 not supported for URL encoding");
+            throw new AssertionError("UTF-8 is not supported for URL encoding");
         }
 
-        BrowserService browser = ServiceManager.getService(BrowserService.class);
         browser.loadUrl(termEncoded);
         showPopup(browser.getComponent(), editor, term);
 
@@ -75,7 +87,7 @@ public class ShowPythonzAction extends AnAction {
                 setMovable(true);
 
         final JBPopup popup = builder.createPopup();
-        popup.setSize(new Dimension(600, 450));
+        popup.setSize(new Dimension(600, 550));
         popup.showInBestPositionFor(editor);
 
     }
